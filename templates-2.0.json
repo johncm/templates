@@ -41,6 +41,20 @@
 			]
 		},
 		{
+			"type": 3,
+			"name": "mediaelch-stack",
+			"title": "MediaElch Stack",
+			"description": "Information about Movies, TV Shows, Concerts and Music are stored as NFO files. Fanarts are downloaded automatically from fanart.tv.",
+			"categories": [
+				"webserver"
+			],
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/johncm/templates",
+				"stackfile": "stacks/mediaelch/docker-stack.yml"
+			}
+		},
+		{
 			"type": 1,
 			"title": "Registry",
 			"description": "Docker image registry",

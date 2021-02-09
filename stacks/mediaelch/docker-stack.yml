@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  mediaelch:
+    image: rveillerot/mediaelch
+    container_name: mediaelch
+    ports:
+      - 5801:5800
+    volumes:
+      - config:/home/mediaelch/.config/kvibes
+      - media:/movies
+    restart: always
+    environment:
+      TZ: "America/Chicago"
+      USER_ID: "0"
+      GROUP_ID: "0"
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.platform.os == linux]
+volumes:
+  config:
+  media:
+    external: true
