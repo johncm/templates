@@ -25,15 +25,18 @@
 			"env": [
 				{
 					"name": "TZ",
+					"label": "Timezone",
 					"set": "America/Chicago"
 				},
 				{
 					"name": "USER_ID",
+					"label": "User ID",
 					"set": "0"
 				},
 				{
 					"name": "GROUP_ID",
-					"label": "0"
+					"label": "Group ID",
+					"set": "0"
 				}
 			]
 		},
