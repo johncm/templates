@@ -1,6 +1,43 @@
 {
 	"version": "2",
-	"templates": [{
+	"templates": [
+		{
+			"type": 1,
+			"title": "MediaElch",
+			"description": "Information about Movies, TV Shows, Concerts and Music are stored as NFO files. Fanarts are downloaded automatically from fanart.tv.",
+			"categories": [
+				"webserver"
+			],
+			"platform": "linux",
+			"image": "rveillerot/mediaelch",
+			"ports": [
+				"5800/tcp",
+				"5900/tcp"
+			],
+			"volumes": [
+				{
+					"container": "/home/mediaelch/.config/kvibes"
+				},
+				{
+					"container": "/movies"
+				}
+			],
+			"env": [
+				{
+					"name": "TZ",
+					"set": "America/Chicago"
+				},
+				{
+					"name": "USER_ID",
+					"set": "0"
+				},
+				{
+					"name": "GROUP_ID",
+					"label": "0"
+				}
+			]
+		},
+		{
 			"type": 1,
 			"title": "Registry",
 			"description": "Docker image registry",
@@ -13,9 +50,11 @@
 			"ports": [
 				"5000/tcp"
 			],
-			"volumes": [{
-				"container": "/var/lib/registry"
-			}]
+			"volumes": [
+				{
+					"container": "/var/lib/registry"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -30,9 +69,11 @@
 			"ports": [
 				"80/tcp"
 			],
-			"volumes": [{
-				"container": "/usr/local/apache2/htdocs/"
-			}]
+			"volumes": [
+				{
+					"container": "/usr/local/apache2/htdocs/"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -49,9 +90,11 @@
 				"443/tcp",
 				"2015/tcp"
 			],
-			"volumes": [{
-				"container": "/root/.caddy"
-			}]
+			"volumes": [
+				{
+					"container": "/root/.caddy"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -63,16 +106,20 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mysql.png",
 			"image": "mysql:latest",
-			"env": [{
-				"name": "MYSQL_ROOT_PASSWORD",
-				"label": "Root password"
-			}],
+			"env": [
+				{
+					"name": "MYSQL_ROOT_PASSWORD",
+					"label": "Root password"
+				}
+			],
 			"ports": [
 				"3306/tcp"
 			],
-			"volumes": [{
-				"container": "/var/lib/mysql"
-			}]
+			"volumes": [
+				{
+					"container": "/var/lib/mysql"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -84,16 +131,20 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mariadb.png",
 			"image": "mariadb:latest",
-			"env": [{
-				"name": "MYSQL_ROOT_PASSWORD",
-				"label": "Root password"
-			}],
+			"env": [
+				{
+					"name": "MYSQL_ROOT_PASSWORD",
+					"label": "Root password"
+				}
+			],
 			"ports": [
 				"3306/tcp"
 			],
-			"volumes": [{
-				"container": "/var/lib/mysql"
-			}]
+			"volumes": [
+				{
+					"container": "/var/lib/mysql"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -105,7 +156,8 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/postgres.png",
 			"image": "postgres:latest",
-			"env": [{
+			"env": [
+				{
 					"name": "POSTGRES_USER",
 					"label": "Superuser"
 				},
@@ -117,9 +169,11 @@
 			"ports": [
 				"5432/tcp"
 			],
-			"volumes": [{
-				"container": "/var/lib/postgresql/data"
-			}]
+			"volumes": [
+				{
+					"container": "/var/lib/postgresql/data"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -134,9 +188,11 @@
 			"ports": [
 				"27017/tcp"
 			],
-			"volumes": [{
-				"container": "/data/db"
-			}]
+			"volumes": [
+				{
+					"container": "/data/db"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -152,9 +208,11 @@
 				"26257/tcp",
 				"8080/tcp"
 			],
-			"volumes": [{
-				"container": "/cockroach/cockroach-data"
-			}],
+			"volumes": [
+				{
+					"container": "/cockroach/cockroach-data"
+				}
+			],
 			"command": "start --insecure"
 		},
 		{
@@ -171,9 +229,11 @@
 				"4200/tcp",
 				"4300/tcp"
 			],
-			"volumes": [{
-				"container": "/data"
-			}]
+			"volumes": [
+				{
+					"container": "/data"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -189,9 +249,11 @@
 				"9200/tcp",
 				"9300/tcp"
 			],
-			"volumes": [{
-				"container": "/usr/share/elasticsearch/data"
-			}]
+			"volumes": [
+				{
+					"container": "/usr/share/elasticsearch/data"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -210,7 +272,8 @@
 				"443/tcp",
 				"22/tcp"
 			],
-			"volumes": [{
+			"volumes": [
+				{
 					"container": "/etc/gitlab"
 				},
 				{
@@ -234,7 +297,8 @@
 			"ports": [
 				"9000/tcp"
 			],
-			"env": [{
+			"env": [
+				{
 					"name": "MINIO_ACCESS_KEY",
 					"label": "Minio access key"
 				},
@@ -243,7 +307,8 @@
 					"label": "Minio secret key"
 				}
 			],
-			"volumes": [{
+			"volumes": [
+				{
 					"container": "/data"
 				},
 				{
@@ -265,7 +330,8 @@
 			"ports": [
 				"8000/tcp"
 			],
-			"env": [{
+			"env": [
+				{
 					"name": "SCALITY_ACCESS_KEY",
 					"label": "Scality S3 access key"
 				},
@@ -274,7 +340,8 @@
 					"label": "Scality S3 secret key"
 				}
 			],
-			"volumes": [{
+			"volumes": [
+				{
 					"container": "/usr/src/app/localData"
 				},
 				{
@@ -296,7 +363,8 @@
 			"ports": [
 				"1433/tcp"
 			],
-			"env": [{
+			"env": [
+				{
 					"name": "ACCEPT_EULA",
 					"set": "Y"
 				},
@@ -320,7 +388,8 @@
 			"ports": [
 				"1433/tcp"
 			],
-			"env": [{
+			"env": [
+				{
 					"name": "ACCEPT_EULA",
 					"set": "Y"
 				},
@@ -329,9 +398,11 @@
 					"label": "SA password"
 				}
 			],
-			"volumes": [{
-				"container": "C:/temp/"
-			}]
+			"volumes": [
+				{
+					"container": "C:/temp/"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -347,7 +418,8 @@
 			"ports": [
 				"1433/tcp"
 			],
-			"env": [{
+			"env": [
+				{
 					"name": "ACCEPT_EULA",
 					"set": "Y"
 				},
@@ -356,9 +428,11 @@
 					"label": "SA password"
 				}
 			],
-			"volumes": [{
-				"container": "C:/temp/"
-			}]
+			"volumes": [
+				{
+					"container": "C:/temp/"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -373,9 +447,11 @@
 			"ports": [
 				"8080/tcp"
 			],
-			"volumes": [{
-				"container": "/app/data"
-			}],
+			"volumes": [
+				{
+					"container": "/app/data"
+				}
+			],
 			"privileged": true
 		},
 		{
@@ -391,13 +467,17 @@
 			"ports": [
 				"4000/tcp"
 			],
-			"volumes": [{
-				"container": "/app/data"
-			}],
-			"env": [{
-				"name": "API_URL",
-				"label": "API URL"
-			}],
+			"volumes": [
+				{
+					"container": "/app/data"
+				}
+			],
+			"env": [
+				{
+					"name": "API_URL",
+					"label": "API URL"
+				}
+			],
 			"privileged": true
 		},
 		{
@@ -413,9 +493,11 @@
 			"ports": [
 				"8983/tcp"
 			],
-			"volumes": [{
-				"container": "/opt/solr/mydata"
-			}]
+			"volumes": [
+				{
+					"container": "/opt/solr/mydata"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -430,9 +512,11 @@
 			"ports": [
 				"6379/tcp"
 			],
-			"volumes": [{
-				"container": "/data"
-			}]
+			"volumes": [
+				{
+					"container": "/data"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -448,9 +532,11 @@
 				"5671/tcp",
 				"5672/tcp"
 			],
-			"volumes": [{
-				"container": "/var/lib/rabbitmq"
-			}]
+			"volumes": [
+				{
+					"container": "/var/lib/rabbitmq"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -466,9 +552,11 @@
 			"ports": [
 				"2368/tcp"
 			],
-			"volumes": [{
-				"container": "/var/lib/ghost/content"
-			}]
+			"volumes": [
+				{
+					"container": "/var/lib/ghost/content"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -500,7 +588,8 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/joomla.png",
 			"image": "joomla:latest",
-			"env": [{
+			"env": [
+				{
 					"name": "JOOMLA_DB_HOST",
 					"label": "MySQL database host",
 					"type": "container"
@@ -513,9 +602,11 @@
 			"ports": [
 				"80/tcp"
 			],
-			"volumes": [{
-				"container": "/var/www/html"
-			}]
+			"volumes": [
+				{
+					"container": "/var/www/html"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -530,9 +621,11 @@
 			"ports": [
 				"80/tcp"
 			],
-			"volumes": [{
-				"container": "/var/www/html"
-			}]
+			"volumes": [
+				{
+					"container": "/var/www/html"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -547,9 +640,11 @@
 			"ports": [
 				"8080/tcp"
 			],
-			"volumes": [{
-				"container": "/data"
-			}]
+			"volumes": [
+				{
+					"container": "/data"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -566,9 +661,11 @@
 				"3000/tcp",
 				"3001/tcp"
 			],
-			"volumes": [{
-				"container": "/var/www/html/"
-			}]
+			"volumes": [
+				{
+					"container": "/var/www/html/"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -583,7 +680,8 @@
 			"image": "sematext/sematext-agent-docker:latest",
 			"name": "sematext-agent",
 			"privileged": true,
-			"env": [{
+			"env": [
+				{
 					"name": "LOGSENE_TOKEN",
 					"label": "Logs token"
 				},
@@ -592,10 +690,12 @@
 					"label": "SPM monitoring token"
 				}
 			],
-			"volumes": [{
-				"container": "/var/run/docker.sock",
-				"bind": "/var/run/docker.sock"
-			}]
+			"volumes": [
+				{
+					"container": "/var/run/docker.sock",
+					"bind": "/var/run/docker.sock"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -607,11 +707,14 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/datadog_agent.png",
 			"image": "datadog/agent:latest",
-			"env": [{
-				"name": "DD_API_KEY",
-				"label": "Datadog API key"
-			}],
-			"volumes": [{
+			"env": [
+				{
+					"name": "DD_API_KEY",
+					"label": "Datadog API key"
+				}
+			],
+			"volumes": [
+				{
 					"container": "/var/run/docker.sock",
 					"bind": "/var/run/docker.sock",
 					"readonly": true
@@ -638,7 +741,8 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mautic.png",
 			"image": "mautic/mautic:latest",
-			"env": [{
+			"env": [
+				{
 					"name": "MAUTIC_DB_HOST",
 					"label": "MySQL database host",
 					"type": "container"
@@ -651,9 +755,11 @@
 			"ports": [
 				"80/tcp"
 			],
-			"volumes": [{
-				"container": "/var/www/html"
-			}]
+			"volumes": [
+				{
+					"container": "/var/www/html"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -665,7 +771,8 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wowza.png",
 			"image": "sameersbn/wowza:4.1.2-8",
-			"env": [{
+			"env": [
+				{
 					"name": "WOWZA_ACCEPT_LICENSE",
 					"label": "Agree to Wowza EULA",
 					"set": "yes"
@@ -681,9 +788,11 @@
 				"8087/tcp",
 				"8088/tcp"
 			],
-			"volumes": [{
-				"container": "/var/lib/wowza"
-			}]
+			"volumes": [
+				{
+					"container": "/var/lib/wowza"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -699,13 +808,17 @@
 				"8080/tcp",
 				"50000/tcp"
 			],
-			"env": [{
-				"name": "JENKINS_OPTS",
-				"label": "Jenkins options"
-			}],
-			"volumes": [{
-				"container": "/var/jenkins_home"
-			}]
+			"env": [
+				{
+					"name": "JENKINS_OPTS",
+					"label": "Jenkins options"
+				}
+			],
+			"volumes": [
+				{
+					"container": "/var/jenkins_home"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -720,9 +833,11 @@
 			"ports": [
 				"3000/tcp"
 			],
-			"volumes": [{
-				"container": "/usr/src/redmine/files"
-			}]
+			"volumes": [
+				{
+					"container": "/usr/src/redmine/files"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -734,7 +849,8 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/odoo.png",
 			"image": "odoo:latest",
-			"env": [{
+			"env": [
+				{
 					"name": "HOST",
 					"label": "PostgreSQL database host",
 					"type": "container"
@@ -751,7 +867,8 @@
 			"ports": [
 				"8069/tcp"
 			],
-			"volumes": [{
+			"volumes": [
+				{
 					"container": "/var/lib/odoo"
 				},
 				{
@@ -776,9 +893,11 @@
 				"55415/tcp",
 				"35622/tcp"
 			],
-			"volumes": [{
-				"container": "/var/urbackup"
-			}]
+			"volumes": [
+				{
+					"container": "/var/urbackup"
+				}
+			]
 		},
 		{
 			"type": 1,
@@ -795,7 +914,8 @@
 			"ports": [
 				"80/tcp"
 			],
-			"volumes": [{
+			"volumes": [
+				{
 					"container": "/data"
 				},
 				{
@@ -814,10 +934,12 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ortussolutions-commandbox.png",
 			"image": "ortussolutions/commandbox:latest",
-			"env": [{
-				"name": "CFENGINE",
-				"set": "lucee@4.5"
-			}],
+			"env": [
+				{
+					"name": "CFENGINE",
+					"set": "lucee@4.5"
+				}
+			],
 			"ports": [
 				"8080/tcp",
 				"8443/tcp"
@@ -833,7 +955,8 @@
 			"platform": "linux",
 			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ortussolutions-contentbox.png",
 			"image": "ortussolutions/contentbox:latest",
-			"env": [{
+			"env": [
+				{
 					"name": "express",
 					"set": "true"
 				},
@@ -850,7 +973,8 @@
 				"8080/tcp",
 				"8443/tcp"
 			],
-			"volumes": [{
+			"volumes": [
+				{
 					"container": "/data/contentbox/db"
 				},
 				{
@@ -933,11 +1057,13 @@
 				"url": "https://github.com/portainer/templates",
 				"stackfile": "stacks/wordpress/docker-stack.yml"
 			},
-			"env": [{
-				"name": "MYSQL_DATABASE_PASSWORD",
-				"label": "Database root password",
-				"description": "Password used by the MySQL root user."
-			}]
+			"env": [
+				{
+					"name": "MYSQL_DATABASE_PASSWORD",
+					"label": "Database root password",
+					"description": "Password used by the MySQL root user."
+				}
+			]
 		},
 		{
 			"type": 3,
@@ -953,11 +1079,13 @@
 				"url": "https://github.com/portainer/templates",
 				"stackfile": "stacks/wordpress/docker-compose.yml"
 			},
-			"env": [{
-				"name": "MYSQL_DATABASE_PASSWORD",
-				"label": "Database root password",
-				"description": "Password used by the MySQL root user."
-			}]
+			"env": [
+				{
+					"name": "MYSQL_DATABASE_PASSWORD",
+					"label": "Database root password",
+					"description": "Password used by the MySQL root user."
+				}
+			]
 		},
 		{
 			"type": 2,
@@ -972,7 +1100,8 @@
 				"url": "https://github.com/portainer/templates",
 				"stackfile": "stacks/microsoft-oms/docker-stack.yml"
 			},
-			"env": [{
+			"env": [
+				{
 					"name": "AZURE_WORKSPACE_ID",
 					"label": "Workspace ID",
 					"description": "Azure Workspace ID"
@@ -998,7 +1127,8 @@
 				"url": "https://github.com/portainer/templates",
 				"stackfile": "stacks/sematext-agent-docker/docker-stack.yml"
 			},
-			"env": [{
+			"env": [
+				{
 					"name": "LOGSENE_TOKEN",
 					"label": "Logs token"
 				},
@@ -1021,24 +1151,26 @@
 				"url": "https://github.com/portainer/templates",
 				"stackfile": "stacks/datadog-agent/docker-stack.yml"
 			},
-			"env": [{
-				"name": "API_KEY",
-				"label": "Datadog API key"
-			}]
+			"env": [
+				{
+					"name": "API_KEY",
+					"label": "Datadog API key"
+				}
+			]
 		},
 		{
-	    "type": 4,
-	    "title": "Wordpress",
-	    "description": "Wordpress setup with a MySQL database",
-	    "note": "Deploys a Wordpress instance connected to a MySQL database.",
-	    "stackfile": "https://raw.githubusercontent.com/portainer/templates/master/stacks/wordpress/edge/docker-stack.yml"
-	  },
-	  {
-	    "type": 4,
-	    "title": "CockroachDB",
-	    "description": "CockroachDB cluster",
-	    "note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
-	    "stackfile": "https://raw.githubusercontent.com/portainer/templates/master/stacks/cockroachdb/edge/docker-stack.yml"
-	  }
+			"type": 4,
+			"title": "Wordpress",
+			"description": "Wordpress setup with a MySQL database",
+			"note": "Deploys a Wordpress instance connected to a MySQL database.",
+			"stackfile": "https://raw.githubusercontent.com/portainer/templates/master/stacks/wordpress/edge/docker-stack.yml"
+		},
+		{
+			"type": 4,
+			"title": "CockroachDB",
+			"description": "CockroachDB cluster",
+			"note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
+			"stackfile": "https://raw.githubusercontent.com/portainer/templates/master/stacks/cockroachdb/edge/docker-stack.yml"
+		}
 	]
 }
